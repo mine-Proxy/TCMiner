@@ -13,13 +13,13 @@
 [![Issues][issues-shield]][issues-url]
 
 <h3>
-    Telegram：<a href="https://t.me/+VK7ZOlKvcLljYjQ1">https://t.me/+VK7ZOlKvcLljYjQ1</a>
+    Telegram：<a href="https://t.me/+VK7ZOlKvcLljYjQ1">https://t.me/Miner_Pr0xy</a>
 </h3>
 
 </div>
 <!-- <h1></h1> -->
 <!-- <h2>简介</h2> -->
-<h1>KTMinerProxy</h1>
+<h1>TCMinerProxy</h1>
 <p>:zap: 原创正版，功能强大，性能强劲。支持无损BTC ETC ETH LTC ERG CFX RVN SERO XMR CKB BEAM ALPH KASPA等多个币种抽水，不爆内存，体验拉满，4000台无压力不崩溃，精确到单台设备的24小时数据统计、自定义隧道推送工具等强大功能...</p>
 
 <p align="center">
@@ -537,7 +537,7 @@ TOKEN超时切换到登录页自动保留了账号密码
 ```
 root用户直接执行以下命令, 根据提示选择对应功能即可。
 
-bash <(curl -s -L https://raw.githubusercontent.com/kt007007/KTMinerProxy/main/linux-install.sh)
+bash <(curl -s -L https://raw.githubusercontent.com/mine-Proxy/TCMinerProxy/main/linux-install.sh)
 ```
 ### 安装完成之后, 请立即修改登录账号、密码以及启动端口，防止被爆破。
 
@@ -553,12 +553,12 @@ bash <(curl -s -L https://raw.githubusercontent.com/kt007007/KTMinerProxy/main/l
 # Windows
 下载完后直接启动即可，程序自带进程守护
 
-<a href="https://github.com/kt007007/KTMinerProxy/tree/main/Windows-64">下载地址</a>
+<a href="https://github.com/mine-Proxy/TCMinerProxy/tree/main/Windows-64">下载地址</a>
 
 <span id="_kenc"></span>
 # KENC
 <p>
-请前往<a href="https://github.com/kt007007/KTMinerProxy/tree/main/KENC">https://github.com/kt007007/KTMinerProxy/tree/main/KENC</a>自行下载
+请前往<a href="https://github.com/mine-Proxy/TCMinerProxy/tree/main/KENC">https://github.com/mine-Proxy/TCMinerProxy/tree/main/KENC</a>自行下载
 </p>
 <p><a href="#kenc">KENC帮助文档</a></p>
 
@@ -692,8 +692,8 @@ bash <(curl -s -L https://raw.githubusercontent.com/kt007007/KTMinerProxy/main/l
 
 # 联系我们
 
-<p>Telegram: <a href="https://t.me/+VK7ZOlKvcLljYjQ1">https://t.me/+VK7ZOlKvcLljYjQ1</a></p>
-<p>Discord: <a href="https://discord.gg/NCsx4y8AR9">https://discord.gg/NCsx4y8AR9</a></p>
+<p>Telegram: <a href="https://t.me/Miner_Pr0xy">https://t.me/Miner_Pr0xy</a></p>
+
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
