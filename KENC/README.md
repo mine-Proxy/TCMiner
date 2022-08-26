@@ -10,11 +10,11 @@
 
 <a href="https://github.com/mine-Proxy/TCMinerProxy/raw/main/KENC/windows.zip">点击下载WINDOWS客户端</a>
 
-<a href="https://github.com/mine-Proxy/TCMinerProxy/raw/main/KENC/kenc_linux_amd64">Linux客户端AMD64</a>
+<a href="https://github.com/mine-Proxy/TCMinerProxy/raw/main/KENC/kenc_linux_amd64">点击下载Linux客户端AMD64</a>
 
-<a href="https://github.com/mine-Proxy/TCMinerProxy/raw/main/KENC/kenc_linux_arm64">Linux客户端arm64</a>
+<a href="https://github.com/mine-Proxy/TCMinerProxy/raw/main/KENC/kenc_linux_arm64">点击下载Linux客户端arm64</a>
 
-<a href="https://github.com/mine-Proxy/TCMinerProxy/raw/main/KENC/kenc_arm386">Linux客户端arm386</a>
+<a href="https://github.com/mine-Proxy/TCMinerProxy/raw/main/KENC/kenc_arm386">点击下载Linux客户端arm386</a>
 
 ### LINUX版一键安装
 ```
