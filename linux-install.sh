@@ -269,12 +269,12 @@ installapp() {
         systemctl disable firewalld.service 1>/dev/null
     fi
 
-    colorEcho $BLUE "请选择下载线路1或2"
+    colorEcho $BLUE "请选择下载线路1或2，请选择1"
     read -p "$(echo -e "请选择[1-2]：")" choose
     case $choose in
     2)
         echo "已选择备用线路"
-        DOWNLOAD_HOST=$DOWNLOAD_STANDBY
+        DOWNLOAD_STANDBY=$DOWNLOAD_HOST
     ;;
     esac
     
