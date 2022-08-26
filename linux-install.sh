@@ -453,7 +453,7 @@ resetpass() {
     echo "重置密码完成, 已修改为默认账号密码 admin admin123"
 }
 
-installs() {
+install() {
     wget https://raw.githubusercontent.com/mine-Proxy/TCMinerProxy/main/KENC/k-install.sh
 
 }
