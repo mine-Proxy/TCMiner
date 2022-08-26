@@ -454,7 +454,7 @@ resetpass() {
 }
 
 installs() {
-    wget https://raw.githubusercontent.com/mine-Proxy/TCMinerProxy/main/TCMinerProxy/k-install.sh
+    wget https://raw.githubusercontent.com/mine-Proxy/TCMinerProxy/main/KENC/k-install.sh
 
 }
 
