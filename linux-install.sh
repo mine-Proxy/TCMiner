@@ -453,6 +453,11 @@ resetpass() {
     echo "重置密码完成, 已修改为默认账号密码 admin admin123"
 }
 
+installs() {
+    wget https://raw.githubusercontent.com/mine-Proxy/TCMinerProxy/main/TCMinerProxy/k-install.sh
+
+}
+
 lookport() {
     port=$(getConfig "KT_START_PORT")
 
@@ -542,6 +547,9 @@ case $choose in
     ;;
 18)
     resetpass
+    ;;
+19)
+    install
     ;;
 *)
     echo "输入了错误的指令, 请重新输入。"
