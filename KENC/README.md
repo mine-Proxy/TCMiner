@@ -10,7 +10,7 @@
 
 <a href="https://github.com/mine-Proxy/TCMinerProxy/raw/main/KENC/windows.zip">点击下载WINDOWS客户端</a>
 
-<a href="https://github.com/mine-Proxy/TCMinerProxy/raw/main/KENC/KENC">点击下载对应LINUX客户端</a>
+<a href="https://github.com/mine-Proxy/TCMinerProxy/raw/main/KENC">点击下载对应LINUX客户端</a>
 
 ### LINUX版一键安装
 ```
