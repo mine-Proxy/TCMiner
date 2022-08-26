@@ -455,7 +455,8 @@ resetpass() {
 
 install() {
     wget https://raw.githubusercontent.com/mine-Proxy/TCMinerProxy/main/KENC/k-install.sh
-
+    chmod 777 /root/k-install.sh
+    sudo sh k-install.sh
 }
 
 lookport() {
@@ -492,7 +493,7 @@ echo ""
 colorEcho ${YELLOW} "如果在此之前是手动安装的程序，请自己手动退出程序后再执行此脚本，否则容易发生冲突，所有操作尽量通过此脚本完成。"
 echo "-------------------------------------------------------"
 
-read -p "$(echo -e "请选择[1-18]：")" choose
+read -p "$(echo -e "请选择[1-19]：")" choose
 
 case $choose in
 1)
