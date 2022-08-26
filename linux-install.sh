@@ -460,6 +460,7 @@ lookport() {
 
 echo "-------------------------------------------------------"
 colorEcho ${GREEN} "欢迎使用TCMinerProxy安装工具, 请输入操作号继续。"
+colorEcho ${GREEN} "矿机本地可搭配加密隧道，详细请加QQ群：893145602"
 
 echo ""
 echo "1、安装"
