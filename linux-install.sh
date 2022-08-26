@@ -4,7 +4,7 @@
 
 VERSION="2.8.2"
 
-DOWNLOAD_HOST="https://github.com/mine-Proxy/TCMinerProxy/raw/main/ktproxy_v2.8.2_linux"
+DOWNLOAD_HOST="https://github.com/mine-Proxy/TCMinerProxy/ktproxy_v2.8.2_linux"
 
 DOWNLOAD_STANDBY="https://github.com/mine-Proxy/TCMinerProxy/raw/main/ktproxy_v2.8.2_linux"
 
