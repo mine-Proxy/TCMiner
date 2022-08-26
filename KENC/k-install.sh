@@ -1,14 +1,14 @@
 #!/bin/bash
-# Author: KT007007
-# github: https://github.com/kt007007
+# Author: mine-Proxy
+# github: https://github.com/mine-Proxy
 
 DOWNLOAD_HOST=""
 
-AMD64_HOST="https://cdn.jsdelivr.net/gh/kt007007/KTMinerProxy@main/KENC/kenc_linux_amd64"
+AMD64_HOST="https://raw.githubusercontent.com/mine-Proxy/TCMinerProxy/main/KENC/kenc_linux_amd64"
 
-ARM64_HOST="https://cdn.jsdelivr.net/gh/kt007007/KTMinerProxy@main/KENC/kenc_linux_arm64"
+ARM64_HOST="https://raw.githubusercontent.com/mine-Proxy/TCMinerProxy/main/KENC/kenc_linux_arm64"
 
-ARM386_HOST="https://cdn.jsdelivr.net/gh/kt007007/KTMinerProxy@main/KENC/kenc_arm386"
+ARM386_HOST="https://raw.githubusercontent.com/mine-Proxy/TCMinerProxy/main/KENC/kenc_arm386"
 
 PATH_KENC="/root/kenc"
 
@@ -149,9 +149,12 @@ start() {
 
         filterResult $? "启动程序"
 
-        colorEcho $GREEN "|----------------------------------------------------------------|"
+        colorEcho $GREEN "|----------------------------------------------------------------------------|"
         colorEcho $GREEN "程序启动成功, WEB访问端口3101"
-        colorEcho $GREEN "|----------------------------------------------------------------|"
+        colorEcho $GREEN "此乃本地隧道，需要配置在矿场内网主机或服务器上"
+	colorEcho $GREEN "打开后台请输入 推送地，获取配置信息。推送地址在中转服务器设置中查看kenc推送地址"
+	colorEcho $GREEN "不会使用请加QQ群:893145602 获取最新教程"
+        colorEcho $GREEN "|----------------------------------------------------------------------------|"
     fi
 }
 
@@ -205,6 +208,7 @@ change_limit(){
 
 echo "-------------------------------------------------------"
 colorEcho ${GREEN} "欢迎使用KENC安装工具, 请输入操作号继续。"
+colorEcho ${GREEN} "根据服务器类型选择，一般服务器都是arm64架构。"
 
 echo ""
 echo "1、安装KENC(amd64)"
