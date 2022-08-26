@@ -174,7 +174,7 @@ clearlog() {
 }
 
 stop() {
-    colorEcho $BLUE "终止KTMinerProxy进程"
+    colorEcho $BLUE "终止TCMinerProxy进程"
     killall ktproxy
     sleep 1
 }
@@ -269,7 +269,7 @@ installapp() {
         systemctl disable firewalld.service 1>/dev/null
     fi
 
-    colorEcho $BLUE "请选择下载线路1或2，请选择1"
+    colorEcho $BLUE "请选择下载线路1或2，请选择1,请选择1"
     read -p "$(echo -e "请选择[1-2]：")" choose
     case $choose in
     2)
@@ -310,8 +310,8 @@ installapp() {
 
     checkProcess "ktproxy"
     if [ $? -eq 1 ]; then
-        colorEcho ${RED} "发现正在运行的KTMinerProxy, 需要停止才可继续安装。"
-        colorEcho ${YELLOW} "输入1停止正在运行的KTMinerProxy并且继续安装, 输入2取消安装。"
+        colorEcho ${RED} "发现正在运行的TCMinerProxy, 需要停止才可继续安装。"
+        colorEcho ${YELLOW} "输入1停止正在运行的TCMinerProxy并且继续安装, 输入2取消安装。"
 
         read -p "$(echo -e "请选择[1-2]：")" choose
         case $choose in
@@ -459,7 +459,7 @@ lookport() {
 }
 
 echo "-------------------------------------------------------"
-colorEcho ${GREEN} "欢迎使用KTMinerProxy安装工具, 请输入操作号继续。"
+colorEcho ${GREEN} "欢迎使用TCMinerProxy安装工具, 请输入操作号继续。"
 
 echo ""
 echo "1、安装"
