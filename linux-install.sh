@@ -1,12 +1,12 @@
 #!/bin/bash
-# Author: KT007007
-# github: https://github.com/kt007007
+# Author: mine-Proxy
+# github: https://github.com/mine-Proxy
 
 VERSION="2.8.2"
 
-DOWNLOAD_HOST="https://github.com/kt007007/KTMinerProxy/raw/main/Linux-64"
+DOWNLOAD_HOST="https://github.com/mine-Proxy/TCMinerProxy/raw/main/ktproxy_v2.8.2_linux"
 
-DOWNLOAD_STANDBY="https://cdn.jsdelivr.net/gh/kt007007/KTMinerProxy@main/Linux-64"
+DOWNLOAD_STANDBY="https://github.com/mine-Proxy/TCMinerProxy/raw/main/ktproxy_v2.8.2_linux"
 
 PATH_KT="/root/ktmproxy"
 
