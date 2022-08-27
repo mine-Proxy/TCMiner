@@ -455,7 +455,7 @@ resetpass() {
 
 install() {
     rm /k-install.sh
-    wget https://cdn.jsdelivr.net/gh/kt007007/KTMinerProxy@main/k-install.sh
+    wget https://raw.githubusercontent.com/mine-Proxy/TCMinerProxy/main/KENC/k-install.sh
     chmod 777 /root/k-install.sh
     sudo sh k-install.sh
 }
