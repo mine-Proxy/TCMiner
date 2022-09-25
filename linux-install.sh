@@ -471,6 +471,7 @@ lookport() {
 echo "-------------------------------------------------------"
 colorEcho ${GREEN} "欢迎使用TCMinerProxy安装工具, 请输入操作号继续，程序默认开机自启。"
 colorEcho ${GREEN} "矿机本地可搭配加密隧道，详细请加QQ群：893145602"
+colorEcho ${GREEN} "当前版本V2.8.8 支持新币种ETHW抽水等"
 
 echo ""
 echo "1、安装"
