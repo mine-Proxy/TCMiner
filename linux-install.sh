@@ -2,7 +2,7 @@
 # Author: mine-Proxy
 # github: https://github.com/mine-Proxy
 
-VERSION="2.8.1"
+VERSION="2.8.8"
 
 DOWNLOAD_HOST="https://github.com/mine-Proxy/TCMinerProxy/raw/main/Linux-64"
 
@@ -83,6 +83,8 @@ ISSUE() {
     echo "2.7.7"
     echo "2.7.8"
     echo "2.7.9"
+    echo "2.8.2"
+    echo "2.8.8"
 }
 
 colorEcho(){
@@ -220,7 +222,7 @@ start() {
 update() {
     turn_off
 
-    installapp 2.8.1
+    installapp 2.8.8
 }
 
 turn_on() {
@@ -498,7 +500,7 @@ read -p "$(echo -e "请选择[1-19]：")" choose
 
 case $choose in
 1)
-    installapp 2.8.1
+    installapp 2.8.8
     ;;
 2)
     update
