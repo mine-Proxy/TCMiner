@@ -2,7 +2,7 @@
 # Author: mine-Proxy
 # github: https://github.com/mine-Proxy
 
-VERSION="2.8.8"
+VERSION="2.9.1"
 
 DOWNLOAD_HOST="https://github.com/mine-Proxy/TCMinerProxy/raw/main/Linux-64"
 
@@ -85,6 +85,7 @@ ISSUE() {
     echo "2.7.9"
     echo "2.8.2"
     echo "2.8.8"
+    echo "2.9.1"
 }
 
 colorEcho(){
@@ -222,7 +223,7 @@ start() {
 update() {
     turn_off
 
-    installapp 2.8.8
+    installapp 2.9.1
 }
 
 turn_on() {
@@ -471,7 +472,7 @@ lookport() {
 echo "-------------------------------------------------------"
 colorEcho ${GREEN} "欢迎使用TCMinerProxy安装工具, 请输入操作号继续，程序默认开机自启。"
 colorEcho ${GREEN} "矿机本地可搭配加密隧道，详细请加QQ群：893145602"
-colorEcho ${GREEN} "当前版本V2.8.8 支持新币种ETHW抽水等"
+colorEcho ${GREEN} "当前版本V2.9.1 支持新币种ETHW抽水等"
 
 echo ""
 echo "1、安装"
@@ -501,7 +502,7 @@ read -p "$(echo -e "请选择[1-19]：")" choose
 
 case $choose in
 1)
-    installapp 2.8.8
+    installapp 2.9.1
     ;;
 2)
     update
