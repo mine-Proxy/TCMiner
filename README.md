@@ -38,7 +38,7 @@
 
 </div>
 
-# ViporMinerSystem
+# TCMinerSystem
 
 <table>
    <tr>
