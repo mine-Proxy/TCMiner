@@ -4,7 +4,7 @@
 
 <img src="/image/ktlogo.gif" alt="Logo" width="170">
 
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&size=25&pause=1000&width=435&lines=TC+Miner)](https://git.io/typing-svg)
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&size=25&pause=1000&width=435&lines=+++++++++++++TC+Miner)](https://git.io/typing-svg)
 
 
 
