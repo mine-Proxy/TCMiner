@@ -307,7 +307,7 @@
 </table>
 
 
-[VIPORMiner.io]: https://github.com/ViporMiner/VIPORMiner
+[VIPORMiner.io]: https://github.com/mine-Proxy/TCMiner
 [VIPORMiner.io-badge]: https://img.shields.io/badge/VIPORMiner-v4.1.0-green?logo=Rust
 [downloads-badge]: https://img.shields.io/github/downloads/ajeetdsouza/zoxide/total?logo=github&logoColor=white&style=flat-square
 [releases]: https://github.com/ViporMiner/VIPORMiner/releases
