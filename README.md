@@ -308,7 +308,7 @@
 
 
 [VIPORMiner.io]: https://github.com/mine-Proxy/TCMiner
-[VIPORMiner.io-badge]: https://img.shields.io/badge/TCRMiner-v4.1.0-green?logo=Rust
+[VIPORMiner.io-badge]: https://img.shields.io/badge/TCMiner-v4.1.0-green?logo=Rust
 [downloads-badge]: https://img.shields.io/github/downloads/ajeetdsouza/zoxide/total?logo=github&logoColor=white&style=flat-square
 [releases]: https://github.com/mine-Proxy/TCMiner/releases
 [stars-url]: https://github.com/mine-Proxy/TCMiner/stargazers
