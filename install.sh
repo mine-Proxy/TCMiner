@@ -1,107 +1,374 @@
 #!/bin/bash
-# Author: mine-Proxy
-# github: https://github.com/mine-Proxy
 
-VERSION="2.9.2"
+VERSION="4.0.0"
+DOWNLOAD_HOST="https://github.com/mine-Proxy/TcstMinerSystem/raw/main/linux"
+ORIGIN_EXEC="tcstminersystem-${VERSION}"
 
-DOWNLOAD_HOST="https://github.com/mine-Proxy/TCMinerProxy/raw/main/Linux-64"
+SERVICE_NAME="rustservice"
 
-DOWNLOAD_STANDBY="https://github.com/mine-Proxy/TCMinerProxy/raw/main/Linux-64"
+PATH_RUST="/root/rustminersystem"
+PATH_EXEC="rustminersystem"
 
-PATH_KT="/root/ktmproxy"
+PATH_CONFIG="${PATH_RUST}/rust-config"
+PATH_NOHUP="${PATH_RUST}/nohup.out"
+PATH_ERR="${PATH_RUST}/err.log"
+PATH_CUE="${PATH_RUST}/cue"
+PATH_D_1="${PATH_RUST}/0.d1"
+PATH_D_2="${PATH_RUST}/0.d1-shm"
+PATH_D_3="${PATH_RUST}/0.d1-wal"
 
-PATH_EXEC="ktproxy"
+# 语言选择菜单
+clear
+echo "Please select your language / 请选择语言:"
+# echo ""
+echo "1. English"
+echo "2. 中文"
+# echo ""
+read -p "$(echo -e "[1-2]：")" lang_choice
 
-PATH_CACHE="/root/ktmproxy/.cache"
+if [ "$lang_choice" = "1" ]; then
+    prompt_title="---------- English Menu ----------"
+    prompt_install="1. Install"
+    prompt_update="2. Update"
+    prompt_start="3. Start software"
+    prompt_stop="4. Stop software"
+    prompt_restart="5. Restart software"
+    prompt_port="6. Modify startup port"
+    prompt_ulimit="7. Remove Linux system connection limit (requires server restart to take effect)"
+    prompt_auto_start="8. Set automatic startup"
+    prompt_disable_auto_start="9. Disable automatic startup..."
+    prompt_status="10. Check program running status"
+    prompt_error_log="11. View error log"
+    prompt_clear_log="12. Clear log files"
+    prompt_web_port="13. View current WEB access port"
+    prompt_uninstall="14. Uninstall"
+    prompt_reset_pwd="15. Reset account password"
+    prompt_target_version="16. Install specified version"
+    prompt_root_no="Please run this script as root!"
+    prompt_error_command="Invalid command entered. Please try again."
+    prompt_msg_1="Start installation"
+    prompt_msg_2="Disable firewall"
+    prompt_msg_3="Unknown operating system, failed to disable firewall"
+    m_4="Start program"
+    m_5="Program is already running, please do not start it again."
+    m_6="Program started successfully, WEB access port is"
+    m_7="Default account is qzpm19kkx default password is xloqslz913"
+    m_8="If you are using the default password and port, please change the account password and web access port in a timely manner through the web settings."
+    m_9="Password reset completed, changed to default account password qzpm19kkx xloqslz913"
+    m_10="Terminating process..."
+    m_11="Not found"
+    m_12="Process"
+    m_13="Terminated"
+    m_14="Set up automatic startup"
+    m_15="Disable automatic startup..."
+    m_16="Failed"
+    m_17="Environment variable configuration file not found, creating one now"
+    m_18="Modify system connection limit"
+    m_19="Connection limit has been changed to 65535, please restart the server for the change to take effect"
+    m_20="Current connection limit:"
+    m_21="Modification completed, please restart the server for the change to take effect"
+    m_22="Detected running"
+    m_23=", it must be stopped before continuing with the installation."
+    m_24="Enter 1 to stop the running"
+    m_25="and continue with the installation, enter 2 to cancel the installation."
+    m_26="Please choose"
+    m_27="Cancel installation"
+    m_28="Invalid input, cancelling installation."
+    m_29="Creating directory"
+    m_30="Directory already exists, no need to create it again, continuing with the installation."
+    m_31="Downloading..."
+    m_32="Downloading program"
+    m_33="Uninstall completed"
+    m_34="Press CTRL+C to run in the background"
+    m_35="Cleaning up logs"
+    m_36="Cleanup completed"
+    m_37="Current WEB access port is"
+    m_38="Enter the published version number to install:"
+    m_39="Please enter the version number:"
+    m_40="Program startup failure!!!"
 
-PATH_LICENSE="/root/ktmproxy/license"
+elif [ "$lang_choice" = "2" ]; then
+    prompt_title="---------- 中文菜单 ----------"
+    prompt_install="1. 安装"
+    prompt_update="2. 更新"
+    prompt_start="3. 启动软件"
+    prompt_stop="4. 停止软件"
+    prompt_restart="5. 重启软件"
+    prompt_port="6. 修改启动端口"
+    prompt_ulimit="7. 解除Linux系统连接数限制（需要重启服务器生效）"
+    prompt_auto_start="8. 设置开机启动"
+    prompt_disable_auto_start="9. 关闭开机启动"
+    prompt_status="10. 查看程序运行状态"
+    prompt_error_log="11. 查看错误日志"
+    prompt_clear_log="12. 清理日志文件"
+    prompt_web_port="13. 查看当前WEB访问端口"
+    prompt_uninstall="14. 卸载"
+    prompt_reset_pwd="15. 重置认账号密码"
+    prompt_target_version="16. 安装指定版本"
+    prompt_root_no="请使用root用户运行此脚本！"
+    prompt_error_command="输入了错误的指令, 请重新输入。"
+    prompt_msg_1="开始安装"
+    prompt_msg_2="关闭防火墙"
+    prompt_msg_3="未知的操作系统, 关闭防火墙失败"
+    m_4="启动程序"
+    m_5="程序已经启动，请不要重复启动。"
+    m_6="程序启动成功, WEB访问端口"
+    m_7="默认账号 qzpm19kkx 默认密码 xloqslz913"
+    m_8="如果您是默认密码及默认端口, 请及时在网页设置中修改账号密码及web访问端口。"
+    m_9="重置密码完成, 已修改为默认账号密码 qzpm19kkx xloqslz913"
+    m_10="终止进程..."
+    m_11="未发现"
+    m_12="进程"
+    m_13="终止"
+    m_14="设置开机启动"
+    m_15="关闭开机启动..."
+    m_16="失败"
+    m_17="未发现环境变量配置文件, 开始创建"
+    m_18="修改系统连接数限制"
+    m_19="连接数限制已修改为65535,重启服务器后生效"
+    m_20="当前连接数限制："
+    m_21="修改完成, 重启服务器后生效"
+    m_22="发现正在运行的"
+    m_23=", 需要停止才可继续安装。"
+    m_24="输入1停止正在运行的"
+    m_25="并且继续安装, 输入2取消安装。"
+    m_26="请选择"
+    m_27="取消安装"
+    m_28="输入错误, 取消安装。"
+    m_29="开始创建目录"
+    m_30="目录已存在, 无需重复创建, 继续执行安装。"
+    m_31="开始下载..."
+    m_32="下载程序"
+    m_33="卸载完成"
+    m_34="按住CTRL+C后台运行"
+    m_35="清理日志"
+    m_36="清理完成"
+    m_37="当前WEB访问端口"
+    m_38="输入已发布的版本来进行安装："
+    m_39="请输入版本号："
+    m_40="程序启动失败!!!"
+else
+  echo "无效的选择"
+  exit 1
+fi
 
-PATH_CONFIG="/root/ktmproxy/.env"
+clear
 
-PATH_NOHUP="/root/ktmproxy/nohup.out"
-PATH_ERR="/root/ktmproxy/err.log"
+[ $(id -u) != "0" ] && { echo "$prompt_root_no"; exit 1; }
 
+echo "$prompt_title"
+echo "$prompt_install"
+echo "$prompt_update"
+echo "$prompt_start"
+echo "$prompt_stop"
+echo "$prompt_restart"
+echo "$prompt_port"
+echo "$prompt_ulimit"
+echo "$prompt_auto_start"
+echo "$prompt_disable_auto_start"
+echo "$prompt_status"
+echo "$prompt_error_log"
+echo "$prompt_clear_log"
+echo "$prompt_web_port"
+echo "$prompt_uninstall"
+echo "$prompt_reset_pwd"
+echo "$prompt_target_version"
 
-PATH_TURN_ON="/etc/profile.d"
-PATH_TURN_ON_SH="/etc/profile.d/ktm.sh"
+update() {
+    stop
 
-ISSUE() {
-    echo "1.0.0"
-    echo "1.1.0"
-    echo "1.1.1"
-    echo "1.1.2"
-    echo "1.1.3"
-    echo "1.1.4"
-    echo "1.1.5"
-    echo "2.0.0"
-    echo "2.0.1"
-    echo "2.1.0"
-    echo "2.1.1"
-    echo "2.2.0"
-    echo "2.2.1"
-    echo "2.2.2"
-    echo "2.2.3"
-    echo "2.2.4"
-    echo "2.2.5"
-    echo "2.2.6"
-    echo "2.2.7"
-    echo "2.3.0"
-    echo "2.3.1"
-    echo "2.3.2"
-    echo "2.3.3"
-    echo "2.4.0"
-    echo "2.4.1"
-    echo "2.4.2"
-    echo "2.4.3"
-    echo "2.5.0"
-    echo "2.5.1"
-    echo "2.5.2"
-    echo "2.5.3"
-    echo "2.5.4"
-    echo "2.5.5"
-    echo "2.5.6"
-    echo "2.5.7"
-    echo "2.5.8"
-    echo "2.5.9"
-    echo "2.6.0"
-    echo "2.6.1"
-    echo "2.6.2"
-    echo "2.6.3"
-    echo "2.6.4"
-    echo "2.6.5"
-    echo "2.6.6"
-    echo "2.6.7"
-    echo "2.6.8"
-    echo "2.6.9"
-    echo "2.7.0"
-    echo "2.7.1"
-    echo "2.7.2"
-    echo "2.7.3"
-    echo "2.7.4"
-    echo "2.7.5"
-    echo "2.7.6"
-    echo "2.7.7"
-    echo "2.7.8"
-    echo "2.7.9"
-    echo "2.8.2"
-    echo "2.8.8"
-    echo "2.9.1"
-    echo "2.9.2"
+    disable_autostart
+
+    installapp $VERSION
 }
 
-colorEcho(){
-    COLOR=$1
-    echo -e "\033[${COLOR}${@:2}\033[0m"
+
+check_process() {
+    if [[ $(uname) == "Linux" ]]; then
+        if pgrep -x "$1" >/dev/null; then
+            return 0
+        else
+            return 1
+        fi
+    else
+        if ps aux | grep -v grep | grep "$1" >/dev/null; then
+            return 0
+        else
+            return 1
+        fi
+    fi
+}
+
+set_port() {
+    read -p "$(echo -e "请输入要设置的端口号：")" choose
+
+    setConfig START_PORT $choose
+
+    stop
+
+    start
+}
+
+start() {
+    echo $BLUE "${m_4}..."
+    check_process $PATH_EXEC
+
+    if [ $? -eq 0 ]; then
+        echo "${m_5}"
+        return
+    else
+        # cd $PATH_RUST
+
+        # nohup "${PATH_RUST}/${PATH_EXEC}" 2>$PATH_ERR &
+
+        enable_autostart
+
+        sleep 1
+
+        check_process $PATH_EXEC
+
+        if [ $? -eq 0 ]; then
+            port=$(getConfig "START_PORT")
+
+            echo "|----------------------------------------------------------------|"
+            echo "${m_6}${port}, ${m_7}"
+            echo "${m_8}"
+	    echo "请及时在网页设置中修改默认账号密码及web访问端口。"
+	    echo "如有任何问题请加QQ群：893145602"
+            echo "微信：xiaoyu1222006"
+	    echo "免费定制专属抽水版本请联系我微信。"
+            echo "|----------------------------------------------------------------|"
+        else
+            echo "${m_40}"
+        fi
+    fi
+}
+
+resetpass() {
+    stop
+
+    echo "删除配置文件"
+
+    rm -rf $PATH_D_1
+    rm -rf $PATH_D_2
+    rm -rf $PATH_D_3
+
+    start
+
+    echo "${m_9}"
+}
+
+restart() {
+    stop
+
+    start
+}
+
+stop() {
+    sleep 1
+
+    disable_autostart
+
+    sleep 1
+
+    echo "${m_10}"
+
+    kill_process $PATH_EXEC
+
+    sleep 1
+}
+
+kill_process() {
+    local process_name="$1"
+  local pids=($(pgrep "$process_name"))
+  if [ ${#pids[@]} -eq 0 ]; then
+    echo "${m_11} $process_name ${m_12}."
+    return 1
+  fi
+  for pid in "${pids[@]}"; do
+    echo "Stopping process $pid ..."
+    kill -TERM "$pid"
+  done
+  echo "${m_13} $process_name ."
+
+  sleep 1
+}
+
+# 设置开机启动且进程守护
+enable_autostart() {
+    echo "${m_14}"
+    if [ "$(command -v systemctl)" ]; then
+        sudo tee /etc/systemd/system/$SERVICE_NAME.service > /dev/null <<EOF
+[Unit]
+Description=My Program
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=$PATH_RUST/$PATH_EXEC
+WorkingDirectory=$PATH_RUST/
+Restart=always
+StandardOutput=file:$PATH_RUST/nohup.out
+StandardError=file:$PATH_RUST/err.log
+TimeoutStopSec=5
+
+[Install]
+WantedBy=multi-user.target
+EOF
+        sudo systemctl daemon-reload
+        sudo systemctl enable $SERVICE_NAME.service
+        sudo systemctl start $SERVICE_NAME.service
+    else
+        sudo sh -c "echo '${PATH_RUST}/${PATH_EXEC} &' >> /etc/rc.local"
+        sudo chmod +x /etc/rc.local
+    fi
+}
+
+# 禁用开机启动函数
+disable_autostart() {
+    echo "${m_15}"
+    if [ "$(command -v systemctl)" ]; then
+        sudo systemctl stop $SERVICE_NAME.service
+        sudo systemctl disable $SERVICE_NAME.service
+        sudo rm /etc/systemd/system/$SERVICE_NAME.service
+        sudo systemctl daemon-reload
+    else # 系统使用的是SysVinit
+        sudo sed -i '/\/root\/tstc\/tstc\ &/d' /etc/rc.local
+    fi
+
+    sleep 1
+}
+
+
+ISSUE() {
+    echo "0.1.0"
+    echo "0.1.2"
+    echo "0.9.9"
+    echo "0.9.91"
+    echo "0.9.92"
+    echo "0.9.93"
+    echo "0.9.94"
+    echo "0.9.95"
+    echo "0.9.96"
+    echo "0.9.97"
+    echo "0.9.98"
+    echo "0.9.99"
+    echo "0.9.999"
+    echo "1.0.0"
+    echo "1.0.1"
+    echo "1.0.2"
+    echo "1.0.3"
 }
 
 filterResult() {
     if [ $1 -eq 0 ]; then
         echo ""
     else
-        colorEcho ${RED} "【${2}】失败。"
+        echo "!!!!!!!!!!!!!!!ERROR!!!!!!!!!!!!!!!!"
+        echo "【${2}】${m_16}。"
 	
         if [ ! $3 ];then
-            colorEcho ${RED} "!!!!!!!!!!!!!!!ERROR!!!!!!!!!!!!!!!!"
+            echo "!!!!!!!!!!!!!!!ERROR!!!!!!!!!!!!!!!!"
             exit 1
         fi
     fi
@@ -115,13 +382,13 @@ getConfig() {
 
 setConfig() {
     if [ ! -f "$PATH_CONFIG" ]; then
-        echo "未发现环境变量配置文件, 创建.env"
+        echo "${m_17}"
         
         touch $PATH_CONFIG
 
         chmod -R 777 $PATH_CONFIG
 
-        echo "KT_START_PORT=16777" >> $PATH_CONFIG
+        echo "START_PORT=63521" >> $PATH_CONFIG
     fi
 
     TARGET_VALUE="$1=$2"
@@ -132,248 +399,62 @@ setConfig() {
 
     sed  -i  "$line d" $PATH_CONFIG
 
-    colorEcho ${GREEN} "$1已修改为$2"
+    echo "$1已修改为$2"
 }
 
-#检查是否为Root
-[ $(id -u) != "0" ] && { colorEcho ${RED} "请使用root用户执行此脚本."; exit 1; }
+# 关闭防火墙
+disable_firewall() {
+    os_name=$(grep "^ID=" /etc/os-release | cut -d "=" -f 2 | tr -d '"')
+    echo $prompt_msg_2
 
-PACKAGE_MANAGER="apt-get"
-PACKAGE_PURGE="apt-get purge"
-
-#######color code########
-RED="31m"
-GREEN="32m"
-YELLOW="33m"
-BLUE="36m"
-FUCHSIA="35m"
-
-if [[ `command -v apt-get` ]];then
-    PACKAGE_MANAGER='apt-get'
-elif [[ `command -v dnf` ]];then
-    PACKAGE_MANAGER='dnf'
-elif [[ `command -v yum` ]];then
-    PACKAGE_MANAGER='yum'
-    PACKAGE_PURGE="yum remove"
-else
-    colorEcho $RED "不支持的操作系统."
-    exit 1
-fi
-
-checkProcess() {
-    COUNT=$(ps -ef |grep $1 |grep -v "grep" |wc -l)
-
-    if [ $COUNT -eq 0 ]; then
-        return 0
+    if [ "$os_name" == "ubuntu" ]; then
+        sudo ufw disable
+    elif [ "$os_name" == "centos" ]; then
+        sudo systemctl stop firewalld
+        sudo systemctl disable firewalld
     else
-        return 1
+        echo $prompt_msg_3
     fi
 }
 
-clearlog() {
-    echo "清理日志"
-    rm $PATH_NOHUP > /dev/null 2>&1
-    rm $PATH_ERR > /dev/null 2>&1
-    echo "清理完成"
-}
-
-stop() {
-    colorEcho $BLUE "终止TCMinerProxy进程"
-    killall ktproxy
-    sleep 1
-}
-
-uninstall() {    
-    stop
-
-    rm -rf ${PATH_KT}
-
-    turn_off
-
-    colorEcho $GREEN "卸载完成"
-}
-
-start() {
-    colorEcho $BLUE "启动程序..."
-    checkProcess "ktproxy"
-    if [ $? -eq 1 ]; then
-        colorEcho ${RED} "程序已经启动，请不要重复启动。"
-        return
-    else
-        # 要先cd进去 否则nohup日志会产生在当前路径
-        cd $PATH_KT
-        filterResult $? "打开目录"
-
-        clearlog
-
-        nohup "${PATH_KT}/${PATH_EXEC}" 2>err.log &
-        # nohup "${PATH_KT}/${PATH_EXEC}" >/dev/null 2>log &
-        filterResult $? "启动程序"
-
-        # getConfig "KT_START_PORT"
-        port=$(getConfig "KT_START_PORT")
-
-        colorEcho $GREEN "|-----------------------------------------------------------------|"
-        colorEcho $GREEN "程序启动成功, WEB访问端口${port}, 默认账号admin, 默认密码admin123。"
-        colorEcho $GREEN "如果您是默认密码及默认端口, 请及时在网页设置中修改账号密码及web访问端口。"
-	colorEcho $GREEN "配置完端口和自定义参数后，请及时在设置中备份数据，防止端口配置信息丢失"
-        colorEcho $GREEN "|------------------------------------------------------------------|"
-    fi
-}
-
-update() {
-    turn_off
-
-    installapp 2.9.2
-}
-
-turn_on() {
-    
-    if [ ! -f "$PATH_TURN_ON_SH" ];then
-
-        touch $PATH_TURN_ON_SH
-
-        chmod 777 -R $PATH_KT
-        chmod 777 -R $PATH_TURN_ON
-
-        echo 'COUNT=$(ps -ef |grep '$PATH_EXEC' |grep -v "grep" |wc -l)' >> $PATH_TURN_ON_SH
-
-        echo 'if [ $COUNT -eq 0 ] && [ $(id -u) -eq 0 ]; then' >> $PATH_TURN_ON_SH
-        echo "  cd ${PATH_KT}" >> $PATH_TURN_ON_SH
-        echo "  nohup "${PATH_KT}/${PATH_EXEC}" 2>err.log &" >> $PATH_TURN_ON_SH
-        echo '  echo "TCProxy已启动"' >> $PATH_TURN_ON_SH
-        echo 'else' >> $PATH_TURN_ON_SH
-        echo '  if [ $COUNT -ne 0 ]; then' >> $PATH_TURN_ON_SH
-        echo '      echo "TCProxy已启动, 无需重复启动"' >> $PATH_TURN_ON_SH
-        echo '  elif [ $(id -u) -ne 0 ]; then' >> $PATH_TURN_ON_SH
-        echo '      echo "使用ROOT用户登录才能启动TCPROXY"' >> $PATH_TURN_ON_SH
-        echo '  fi' >> $PATH_TURN_ON_SH
-        echo 'fi' >> $PATH_TURN_ON_SH
-
-        echo "已设置开机启动"
-    else
-        echo "已设置开机启动, 无需重复设置"
-    fi
-}
-
-turn_off() {
-    rm $PATH_TURN_ON_SH
-    echo "已关闭开机启动"
-}
-
-installapp() {
-    if [ -n "$1" ]; then
-        VERSION="$1"
-    fi
-    
-    colorEcho ${GREEN} "开始安装TCMPROXY-V-${VERSION}"
-
-    if [[ `command -v yum` ]];then
-        colorEcho ${BLUE} "关闭防火墙"
-        systemctl stop firewalld.service 1>/dev/null
-        systemctl disable firewalld.service 1>/dev/null
-    fi
-
-    colorEcho $BLUE "请选择下载线路1或2，请选择1,请选择1"
-    read -p "$(echo -e "请选择[1-2]：")" choose
-    case $choose in
-    2)
-        echo "已选择备用线路"
-        DOWNLOAD_STANDBY=$DOWNLOAD_HOST
-    ;;
-    esac
-    
-
-    colorEcho $BLUE "是否更新LINUX软件源？如果您的LINUX更新过可输入2跳过并继续安装，如果您不了解用途直接输入1。"
-    read -p "$(echo -e "请选择[1-2]：")" choose
-    case $choose in
-    1)
-        colorEcho ${BLUE} "开始更新软件源..."
-        $PACKAGE_MANAGER update -y
-    ;;
-    esac
-    
-    if [[ ! `command -v curl` ]];then 
-        echo "尚未安装CURL, 开始安装"
-        $PACKAGE_MANAGER install curl
-    fi
-
-    if [[ ! `command -v wget` ]];then
-        echo "尚未安装wget, 开始安装"
-        $PACKAGE_MANAGER install wget
-    fi
-
-    if [[ ! `command -v killall` ]];then
-        echo "尚未安装killall, 开始安装"
-        $PACKAGE_MANAGER install psmisc
-    fi
-
-    if [[ ! `command -v killall` ]];then
-        colorEcho ${RED} "安装killall失败！！！！请手动安装psmisc后再执行安装程序。"
-        return
-    fi
-
-    checkProcess "ktproxy"
-    if [ $? -eq 1 ]; then
-        colorEcho ${RED} "发现正在运行的TCMinerProxy, 需要停止才可继续安装。"
-        colorEcho ${YELLOW} "输入1停止正在运行的TCMinerProxy并且继续安装, 输入2取消安装。"
-
-        read -p "$(echo -e "请选择[1-2]：")" choose
-        case $choose in
-        1)
-            stop
-            ;;
-        2)
-            echo "取消安装"
-            return
-            ;;
-        *)
-            echo "输入错误, 取消安装。"
-            return
-            ;;
-        esac
-    fi
-
-    colorEcho $BLUE "创建目录"
-    
-    if [[ ! -d $PATH_KT ]];then
-        mkdir $PATH_KT
-        chmod 777 -R $PATH_KT
-    else
-        colorEcho $YELLOW "目录已存在, 无需重复创建, 继续执行安装。"
-    fi
-
-    if [[ ! -d $PATH_NOHUP ]];then
-        touch $PATH_NOHUP
-        touch $PATH_ERR
-
-        chmod 777 -R $PATH_NOHUP
-        chmod 777 -R $PATH_ERR
-    fi
-
-    if [[ ! -f $PATH_CONFIG ]];then
-        setConfig KT_START_PORT $((RANDOM%65535+1))
-    fi
-
-    colorEcho $BLUE "拉取程序"
-    # wget -P $PATH_KT "${DOWNLOAD_HOST}/${ORIGIN_EXEC}" -O "${PATH_KT}/${PATH_EXEC}" 1>/dev/null
-    wget -P $PATH_KT "${DOWNLOAD_HOST}/ktproxy_v${VERSION}_linux" -O "${PATH_KT}/${PATH_EXEC}" 1>/dev/null
-
-    filterResult $? "拉取程序 ktproxy_v${VERSION}_linux"
-
-    chmod 777 -R "${PATH_KT}/${PATH_EXEC}"
-
-    turn_on
-
-    change_limit
-
-    start
-}
-
-change_limit(){
-    colorEcho $BLUE "修改系统最大连接数"
+change_limit() {
+    echo "${m_18}"
 
     changeLimit="n"
+
+    if [[ -f /etc/debian_version ]]; then
+    echo "soft nofile 65535" | sudo tee -a /etc/security/limits.conf
+    echo "hard nofile 65535" | sudo tee -a /etc/security/limits.conf
+    echo "fs.file-max = 100000" | sudo tee -a /etc/sysctl.conf
+    sudo sysctl -p
+
+    # add PAM configuration to enable the limits for login sessions
+    if [[ -f /etc/pam.d/common-session ]]; then
+        grep -q '^session.*pam_limits.so$' /etc/pam.d/common-session || sudo sh -c "echo 'session required pam_limits.so' >> /etc/pam.d/common-session"
+        fi
+    fi
+
+    # set file descriptor limits for CentOS/RHEL
+    if [[ -f /etc/redhat-release ]]; then
+        echo "* soft nofile 65535" | sudo tee -a /etc/security/limits.conf
+        echo "* hard nofile 65535" | sudo tee -a /etc/security/limits.conf
+        echo "fs.file-max = 100000" | sudo tee -a /etc/sysctl.conf
+        sudo sysctl -p
+    fi
+
+    # set file descriptor limits for macOS
+    if [[ "$(uname)" == "Darwin" ]]; then
+        sudo launchctl limit maxfiles 65535 65535
+        sudo sysctl -w kern.maxfiles=100000
+        sudo sysctl -w kern.maxfilesperproc=65535
+    fi
+
+    # set systemd file descriptor limits
+    if [[ -x /bin/systemctl ]]; then
+        echo "DefaultLimitNOFILE=65535" >>/etc/systemd/user.conf
+        echo "DefaultLimitNOFILE=65535" >>/etc/systemd/system.conf
+        systemctl daemon-reexec
+    fi
 
     if [ $(grep -c "root soft nofile" /etc/security/limits.conf) -eq '0' ]; then
         echo "root soft nofile 65535" >>/etc/security/limits.conf
@@ -398,168 +479,180 @@ change_limit(){
     fi
 
     if [[ "$changeLimit" = "y" ]]; then
-        echo "连接数限制已修改为65535,重启服务器后生效"
+        echo "${m_19}"
     else
-        echo -n "当前连接数限制："
+        echo -n "${m_20}"
         ulimit -n
     fi
+
+    echo "${m_21}"
 }
 
-check_limit() {
-    echo "当前系统连接数：" 
-    ulimit -n
+installapp() {
+    if [ -n "$1" ]; then
+        VERSION="$1"
+        ORIGIN_EXEC="tcstminersystem-${1}"
+    fi
+
+    echo $ORIGIN_EXEC
+
+    echo "${prompt_msg_1}${ORIGIN_EXEC}"
+
+    disable_firewall
+
+    check_process $PATH_EXEC
+    
+    if [ $? -eq 0 ]; then
+        echo "${m_22}${PATH_EXEC}${m_23}"
+        echo "${m_24}${PATH_EXEC}${m_25}"
+
+        read -p "$(echo -e "${m_26}[1-2]：")" choose
+        case $choose in
+        1)
+            stop
+            ;;
+        2)
+            echo "${m_27}"
+            return
+            ;;
+        *)
+            echo "${m_28}"
+            return
+            ;;
+        esac
+    fi
+
+    echo "${m_29}"
+
+    if [[ ! -d $PATH_RUST ]];then
+        mkdir $PATH_RUST
+        chmod 777 -R $PATH_RUST
+    else
+        echo $YELLOW "${m_30}"
+    fi
+
+    if [[ ! -d $PATH_NOHUP ]];then
+        touch $PATH_NOHUP
+        touch $PATH_ERR
+
+        chmod 777 -R $PATH_NOHUP
+        chmod 777 -R $PATH_ERR
+    fi
+
+    if [[ ! -f $PATH_CONFIG ]];then
+        setConfig START_PORT $((RANDOM%65535+1))
+    fi
+
+    echo "${m_31}"
+
+    wget -P $PATH_RUST "${DOWNLOAD_HOST}/${ORIGIN_EXEC}" -O "${PATH_RUST}/${PATH_EXEC}" 1>/dev/null
+
+    filterResult $? "${m_32}"
+
+    chmod 777 -R "${PATH_RUST}/${PATH_EXEC}"
+
+    # enable_autostart
+
+    start
+}
+
+uninstall() {
+    stop
+
+    rm -rf ${PATH_RUST}
+
+    disable_autostart
+
+    echo "${m_33}"
 }
 
 check_hub() {
-    # cd $PATH_KT
-    colorEcho ${YELLOW} "按住CTRL+C后台运行"
-    tail -f /root/ktmproxy/nohup.out
+    echo "${m_34}"
+    tail -f $PATH_NOHUP
 }
 
 check_err() {
-    colorEcho ${YELLOW} "按住CTRL+C后台运行"
-    tail -f /root/ktmproxy/err.log
+    echo "${m_34}"
+    tail -f $PATH_ERR
+}
+
+clearlog() {
+    echo "${m_35}"
+    rm $PATH_NOHUP > /dev/null 2>&1
+    rm $PATH_ERR > /dev/null 2>&1
+    echo "${m_36}"
+}
+
+
+lookport() {
+    port=$(getConfig "START_PORT")
+
+    echo "${m_37}${port}"
 }
 
 install_target() {
-    echo "输入已发布的版本来进行安装："
+    echo "${m_38}"
     echo ""
     ISSUE
     echo ""
-    read -p "$(echo -e "请输入版本号：")" choose
+    read -p "$(echo -e "${m_39}")" choose
 
     installapp $choose
 }
 
-restart() {
-    stop
 
-    start
-}
-
-set_port() {
-    read -p "$(echo -e "请输入要设置的端口号：")" choose
-
-    setConfig KT_START_PORT $choose
-
-    stop
-
-    start
-}
-
-resetpass() {
-    stop
-
-    rm -rf $PATH_LICENSE
-
-    start
-
-    echo "重置密码完成, 已修改为默认账号密码 admin admin123"
-}
-
-install() {
-    rm /k-install.sh
-    wget https://raw.githubusercontent.com/mine-Proxy/TCMinerProxy/main/KENC/k-install.sh
-    chmod 777 /root/k-install.sh
-    sudo sh k-install.sh
-}
-
-lookport() {
-    port=$(getConfig "KT_START_PORT")
-
-    colorEcho $GREEN "当前WEB访问端口${port}"
-}
-
-echo "-------------------------------------------------------"
-colorEcho ${GREEN} "欢迎使用TCMinerProxy安装工具, 请输入操作号继续，程序默认开机自启。"
-colorEcho ${GREEN} "矿机本地可搭配加密隧道，详细请加QQ群：893145602"
-colorEcho ${GREEN} "当前版本V2.9.2 支持新币种ETHW抽水等"
-
-echo ""
-echo "1、安装"
-echo "2、更新"
-echo "3、还是更新"
-echo "4、启动"
-echo "5、重启"
-echo "6、停止"
-echo "7、修改启动端口"
-echo "8、解除linux系统连接数限制(需要重启服务器生效)"
-echo "9、查看当前系统连接数限制"
-echo "10、设置开机启动"
-echo "11、关闭开机启动"
-echo "12、查看程序运行状态"
-echo "13、查看程序错误日志"
-echo "14、安装指定版本（通常不需要这个选项来安装）"
-echo "15、清理日志文件"
-echo "16、查看当前WEB服务端口"
-echo "17、卸载"
-echo "18、重置密码"
-echo "19、一键安装本地隧道KENC客户端（请在矿机局域网内安装）"
-echo ""
-colorEcho ${YELLOW} "如果在此之前是手动安装的程序，请自己手动退出程序后再执行此脚本，否则容易发生冲突，所有操作尽量通过此脚本完成。"
-echo "-------------------------------------------------------"
-
-read -p "$(echo -e "请选择[1-19]：")" choose
+read -p "$(echo -e "[1-16]：")" choose
 
 case $choose in
 1)
-    installapp 2.9.2
+    installapp $VERSION
     ;;
 2)
     update
     ;;
 3)
-    update
+    start
     ;;
 4)
-    start
+    stop
     ;;
 5)
     restart
     ;;
 6)
-    stop
-    ;;
-7)
     set_port
     ;;
-8)
+7)
     change_limit
     ;;
+8)
+    enable_autostart
+    ;;
 9)
-    check_limit
+    disable_autostart
     ;;
 10)
-    turn_on
-    ;;
-11)
-    turn_off
-    ;;
-12)
     check_hub
     ;;
-13)
+11)
     check_err
     ;;
-14)
-    install_target
-    ;;
-15)
+12)
     clearlog
     ;;
-16)
+13)
     lookport
     ;;
-17)
+14)
     uninstall
     ;;
-18)
+15)
     resetpass
     ;;
-19)
-    install
+16)
+    install_target
     ;;
 *)
-    echo "输入了错误的指令, 请重新输入。"
+    echo $prompt_error_command
     ;;
 esac
