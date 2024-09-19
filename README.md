@@ -245,7 +245,7 @@
 
 ### 👉 **更新日志**
 
-   <p>&emsp;&emsp;<a href="https://github.com/ViporMiner/VIPORMiner/releases">点击查看更新日志</a>
+   <p>&emsp;&emsp;<a href="https://github.com/mine-Proxy/TCMiner/releases">点击查看更新日志</a>
 
 
    </td>
