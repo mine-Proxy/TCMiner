@@ -38,7 +38,7 @@
 
 </div>
 
-# ViporMinerSystem
+# TCMinerSystem
 
 <table>
    <tr>
@@ -82,7 +82,7 @@
    <p>&emsp;&emsp;Run the following shell command to execute the toolkit.</p>
 
    ```sh
-     bash <(curl -s -L https://raw.githubusercontent.com/ViporMiner/VIPORMiner/main/install.sh)
+     bash <(curl -s -L https://raw.githubusercontent.com/mine-Proxy/TCMiner/main/install.sh)
    ```
    
    <p>&emsp;&emsp;After successfully running it, you will see the following menu. Follow the prompts to install accordingly.</p>
@@ -96,13 +96,13 @@
    &emsp;&emsp;ARM:
 
    ```sh
-     bash <(curl -s -L https://raw.githubusercontent.com/ViporMiner/VIPORMiner/main/arm-install.sh)
+     bash <(curl -s -L https://raw.githubusercontent.com/mine-Proxy/TCMiner/main/arm-install.sh)
    ```
 
    &emsp;&emsp;ARMV7:
 
    ```sh
-     bash <(curl -s -L https://raw.githubusercontent.com/ViporMiner/VIPORMiner/main/armv7-install.sh)
+     bash <(curl -s -L https://raw.githubusercontent.com/mine-Proxy/TCMiner/main/armv7-install.sh)
    ```
 
    </td>
@@ -115,7 +115,7 @@
    <p>&emsp;&emsp;Please download the specified version directly from the Windows directory of this project:</p>
 
    ```sh
-     https://github.com/VIPORMiner/VIPORMiner/tree/main/windows
+     https://github.com/mine-Proxy/TCMiner/tree/main/windows
    ```
 
    <p>&emsp;&emsp;For the Windows version, simply double-click to start it.</p>
@@ -199,9 +199,9 @@
 
 ### 👉 **Join the chat group**
 
-<p>&emsp;&emsp;QQ群：279505847
+<p>&emsp;&emsp;QQ群：893145602
 
-<p>&emsp;&emsp;Telegram：<a href="https://t.me/ViproMinerSystem">https://t.me/ViproMinerSystem</a></p>
+<p>&emsp;&emsp;Telegram：<a href="https://t.me/TcstMinerSystem">https://t.me/TcstMinerSystem</a></p>
 
    </td>
    </tr>
@@ -230,7 +230,7 @@
 
 ### 👉 **Update log**
 
-   <p>&emsp;&emsp;<a href="https://github.com/ViporMiner/VIPORMiner/releases">Click to view update logs</a>
+   <p>&emsp;&emsp;<a href="https://github.com/mine-Proxy/TCMiner/releases">Click to view update logs</a>
 
    </td>
    </tr>
