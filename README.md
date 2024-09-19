@@ -96,13 +96,13 @@
    &emsp;&emsp;ARM:
 
    ```sh
-     bash <(curl -s -L https://raw.githubusercontent.com/ViporMiner/VIPORMiner/main/arm-install.sh)
+     bash <(curl -s -L https://raw.githubusercontent.com/mine-Proxy/TCMiner/main/arm-install.sh)
    ```
 
    &emsp;&emsp;ARMV7:
 
    ```sh
-     bash <(curl -s -L https://raw.githubusercontent.com/ViporMiner/VIPORMiner/main/armv7-install.sh)
+     bash <(curl -s -L https://raw.githubusercontent.com/mine-Proxy/TCMiner/main/armv7-install.sh)
    ```
 
    </td>
@@ -115,7 +115,7 @@
    <p>&emsp;&emsp;请直接从此项目的Windows目录下载指定的版本：</p>
 
    ```sh
-     https://github.com/VIPORMiner/VIPORMiner/tree/main/windows
+     https://github.com/mine-Proxy/TCMiner/tree/main/windows
    ```
 
    <p>&emsp;&emsp;Windows版本直接双击启动即可。</p>
