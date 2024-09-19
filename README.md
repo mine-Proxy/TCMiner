@@ -31,7 +31,7 @@
 
 
 
-[![TCMiner][VIPORMiner.io-badge]][VIPORMiner.io]
+[![VIPORMiner][VIPORMiner.io-badge]][VIPORMiner.io]
 [![Stargazers][stars-shield]][stars-url]
 <!-- <a href="https://github.com/CakeSystem/CakeSystem">简体中文</a>｜<a href="https://github.com/CakeSystem/CakeSystem/tree/main/Readme/i18n">English</a> -->
 
@@ -307,7 +307,7 @@
 </table>
 
 
-[TCMiner.io]: https://github.com/ViporMiner/VIPORMiner
+[VIPORMiner.io]: https://github.com/ViporMiner/VIPORMiner
 [VIPORMiner.io-badge]: https://img.shields.io/badge/VIPORMiner-v4.1.0-green?logo=Rust
 [downloads-badge]: https://img.shields.io/github/downloads/ajeetdsouza/zoxide/total?logo=github&logoColor=white&style=flat-square
 [releases]: https://github.com/ViporMiner/VIPORMiner/releases
