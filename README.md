@@ -199,9 +199,9 @@
 
 ### 👉 **加入聊天组**
 
-<p>&emsp;&emsp;QQ群：279505847
+<p>&emsp;&emsp;QQ群：893145602 
 
-<p>&emsp;&emsp;Telegram：<a href="https://t.me/ViproMinerSystem">https://t.me/ViproMinerSystem</a></p>
+<p>&emsp;&emsp;Telegram：<a href="https://t.me/TcstMinerSystem">https://t.me/TcstMinerSystem</a></p>
 
 <!-- <p>&emsp;&emsp;Discord: <a href="https://discord.gg/xpjRnv8wpX">https://discord.gg/xpjRnv8wpX</a></p> -->
 
@@ -266,9 +266,9 @@
 
 ### 👉 **定制专属版本说明**
 
-   <p>&emsp;&emsp;1. 加入聊天群组QQ群 ：279505847
+   <p>&emsp;&emsp;1. 加入聊天群组QQ群 ：893145602
       
-   <p>&emsp;&emsp;Telegram：<a href="https://t.me/ViproMinerSystem">https://t.me/ViproMinerSystem</a></p>
+   <p>&emsp;&emsp;Telegram：<a href="https://t.me/TcstMinerSystem">https://t.me/TcstMinerSystem</a></p>
    
    <p>&emsp;&emsp;2. 联系群主或管理员提供相关信息即可免费定制。</p>
 
