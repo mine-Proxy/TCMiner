@@ -4,10 +4,10 @@ VERSION="4.1.2"
 DOWNLOAD_HOST="https://github.com/mine-Proxy/TCMiner/raw/main/linux"
 ORIGIN_EXEC="TCMiner-${VERSION}"
 
-SERVICE_NAME="rustservice"
+SERVICE_NAME="tcservice"
 
-PATH_RUST="/root/rustminersystem"
-PATH_EXEC="rustminersystem"
+PATH_RUST="/root/tcminersystem"
+PATH_EXEC="tcminersystem"
 
 PATH_CONFIG="${PATH_RUST}/rust-config"
 PATH_NOHUP="${PATH_RUST}/nohup.out"
