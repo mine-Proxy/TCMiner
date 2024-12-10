@@ -1,6 +1,6 @@
 #!/bin/bash
 
-VERSION="4.1.4"
+VERSION="4.2.0"
 DOWNLOAD_HOST="https://github.com/mine-Proxy/TCMiner/raw/main/linux"
 ORIGIN_EXEC="TCMiner-${VERSION}"
 
