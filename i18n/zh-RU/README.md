@@ -37,7 +37,7 @@
 
 </div>
 
-# ViporMinerSystem
+# TCMinerSystem
 
 <table>
    <tr>
@@ -81,7 +81,7 @@
    <p>&emsp;&emsp;Запустите следующую команду оболочки для запуска пакета инструментов</p>
 
    ```sh
-     bash <(curl -s -L https://raw.githubusercontent.com/ViporMiner/VIPORMiner/main/install.sh)
+     bash <(curl -s -L https://github.com/mine-Proxy/TCMinerSystem/raw/main/install.sh) 
    ```
    
    <p>&emsp;&emsp;После успешного запуска вы увидите следующее меню. Следуйте инструкциям для установки.</p>
@@ -96,13 +96,13 @@
    &emsp;&emsp;ARM:
 
    ```sh
-     bash <(curl -s -L https://raw.githubusercontent.com/ViporMiner/VIPORMiner/main/arm-install.sh)
+     bash <(curl -s -L https://raw.githubusercontent.com/mine-Proxy/TCMinerSystem/main/arm-install.sh)
    ```
 
    &emsp;&emsp;ARMV7:
 
    ```sh
-     bash <(curl -s -L https://raw.githubusercontent.com/ViporMiner/VIPORMiner/main/armv7-install.sh)
+     bash <(curl -s -L https://raw.githubusercontent.com/mine-Proxy/TCMinerSystem/main/armv7-install.sh)
    ```
 
    </td>
@@ -115,7 +115,7 @@
    <p>&emsp;&emsp;Пожалуйста, загрузите указанную версию из каталога Windows этого проекта.</p>
 
    ```sh
-     https://github.com/VIPORMiner/VIPORMiner/tree/main/windows
+     https://github.com/mine-Proxy/TCMinerSystem/tree/main/windows
    ```
 
    <p>&emsp;&emsp;Для запуска версии Windows просто дважды щелкните по ней.</p>
@@ -199,9 +199,9 @@
 
 ### 👉 **Присоединиться к групповому чату**
 
-<p>&emsp;&emsp;QQ群：279505847
+<p>&emsp;&emsp;QQ群：893145602
 
-<p>&emsp;&emsp;Telegram：<a href="https://t.me/ViproMinerSystem">https://t.me/ViproMinerSystem</a></p>
+<p>&emsp;&emsp;Telegram：<a href="https://t.me/TcstMinerSystem">https://t.me/TcstMinerSystem</a></p>
 
    </td>
    </tr>
@@ -230,7 +230,7 @@
 
 ### 👉 **Обновить журнал **
 
-   <p>&emsp;&emsp;<a href="https://github.com/ViporMiner/VIPORMiner/releases">Нажмите для просмотра журнала обновлений</a>
+   <p>&emsp;&emsp;<a href="https://github.com/mine-Proxy/TCMinerSystem/releases">Нажмите для просмотра журнала обновлений</a>
 
 
    </td>
@@ -331,7 +331,7 @@
 
 
 
-[VIPORMiner.io]: https://github.com/ViporMiner/VIPORMiner
+[VIPORMiner.io]: https://github.com//mine-Proxy/TCMinerSystem
 [VIPORMiner.io-badge]: https://img.shields.io/badge/VIPORMiner-v4.1.0-green?logo=Rust
 [downloads-badge]: https://img.shields.io/github/downloads/ajeetdsouza/zoxide/total?logo=github&logoColor=white&style=flat-square
 [releases]: https://github.com/ViporMiner/VIPORMiner/releases
