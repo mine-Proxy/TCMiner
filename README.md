@@ -2,7 +2,7 @@
 
 <div align="center">
 
-# <img src="./image/logo.gif" alt="Logo" width="24">TCMiner
+# <img src="./image/logo.gif" alt="Logo" width="24">TCMiner矿池中转 
 
 ### <a href="https://github.com/mine-Proxy/TCMiner">代理传统矿池, 或成为真正的矿池节点! 点击查看!</a>
 
@@ -37,7 +37,7 @@
 
 </div>
 
-# TCMinerSystem
+# TCMinerSystem中转矿池 代理中转
 
 <table>
    <tr>
