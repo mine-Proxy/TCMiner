@@ -5,6 +5,7 @@
 <h4 align="center">MinerProxy MinerProxy MinerProxy</h4>
 <h4 align="center">完备的虚拟货币挖矿全链路解决方案。</h4>
 <h4 align="center">矿池中转 中转服务器 比特币挖矿 加密隧道 矿池代理 </h4>
+<h4 align="center">加入QQ交流群：893145602</h4>
 
 <p align="center">
     <a href="https://github.com/mine-Proxy/TCMinerSystem/releases">
